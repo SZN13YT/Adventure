@@ -1,0 +1,14 @@
+C:\Users\nando\source\repos\Adventure\Adventure\bin\Debug\net10.0\Adventure.exe
+C:\Users\nando\source\repos\Adventure\Adventure\bin\Debug\net10.0\Adventure.deps.json
+C:\Users\nando\source\repos\Adventure\Adventure\bin\Debug\net10.0\Adventure.runtimeconfig.json
+C:\Users\nando\source\repos\Adventure\Adventure\bin\Debug\net10.0\Adventure.dll
+C:\Users\nando\source\repos\Adventure\Adventure\bin\Debug\net10.0\Adventure.pdb
+C:\Users\nando\source\repos\Adventure\Adventure\obj\Debug\net10.0\Adventure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nando\source\repos\Adventure\Adventure\obj\Debug\net10.0\Adventure.AssemblyInfoInputs.cache
+C:\Users\nando\source\repos\Adventure\Adventure\obj\Debug\net10.0\Adventure.AssemblyInfo.cs
+C:\Users\nando\source\repos\Adventure\Adventure\obj\Debug\net10.0\Adventure.csproj.CoreCompileInputs.cache
+C:\Users\nando\source\repos\Adventure\Adventure\obj\Debug\net10.0\Adventure.dll
+C:\Users\nando\source\repos\Adventure\Adventure\obj\Debug\net10.0\refint\Adventure.dll
+C:\Users\nando\source\repos\Adventure\Adventure\obj\Debug\net10.0\Adventure.pdb
+C:\Users\nando\source\repos\Adventure\Adventure\obj\Debug\net10.0\Adventure.genruntimeconfig.cache
+C:\Users\nando\source\repos\Adventure\Adventure\obj\Debug\net10.0\ref\Adventure.dll
