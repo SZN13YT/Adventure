@@ -7,12 +7,12 @@ namespace Adventure
 
     class Entity
     {
-        public string[] Access = { "Necklace", "Bracelet", "Ring", "Ring" };
-        public string[] Armors = { "Helmet", "Chestplate", "Leggings", "Boots" };
-        public string Name { get; set; }
-        public int MaxHp { get; set; }
-        public int Level { get; set; }
-        public int Hp { get; set; }
+        protected string[] Access = { "Necklace", "Bracelet", "Ring", "Ring" };
+        protected string[] Armors = { "Helmet", "Chestplate", "Leggings", "Boots" };
+        protected string Name { get; set; }
+        protected int MaxHp { get; set; }
+        protected int Level { get; set; }
+        protected int Hp { get; set; }
         public Entity(string n, int hp, int lvl)
         {
             this.Name = n;
@@ -40,17 +40,16 @@ namespace Adventure
     class Player : Entity
     {
 
-        public int Hp { get; set; }
-        public int MP { get; set; }
-        public int Xp { get; set; }
-        public int SelfHealing { get; set; }
-        public int MaxMP { get; set; }
-        public string Cast { get; set; }
-        public Item[] Armour = { null, null, null, null };
-        public Item[] Accessories = { null, null, null, null };
-        public Item[] Hands = { null, null };
-        public List<Item> inventory = new List<Item>();
-        public Dictionary<string, int> Materials = new Dictionary<string, int>()
+        private int MP { get; set; }
+        private int Xp { get; set; }
+        private int SelfHealing { get; set; }
+        private int MaxMP { get; set; }
+        private string Cast { get; set; }
+        private Item[] Armour = { null, null, null, null };
+        private Item[] Accessories = { null, null, null, null };
+        private Item[] Hands = { null, null };
+        public List<Item> Inventory { get; private set; } = new List<Item>();
+        private Dictionary<string, int> Materials = new Dictionary<string, int>()
         {
             ["Leather"] = 0,
             ["Wood"] = 1,
@@ -80,12 +79,12 @@ namespace Adventure
             Console.ResetColor();
             Console.WriteLine("\nInventory:");
             Console.Write("\t");
-            if (this.inventory.Count > 0) 
+            if (this.Inventory.Count > 0) 
             { 
-                for (int i = 0; i < this.inventory.Count(); i++) 
+                for (int i = 0; i < this.Inventory.Count(); i++) 
                 { 
-                    if (i % 9 == 0 && i != 0 || this.inventory.Count() - 1 == i) Console.WriteLine("\t" + this.inventory[i].rarity + this.inventory[i].itemName); 
-                    else Console.Write(this.inventory[i].rarity + $"{this.inventory[i].itemName}, "); 
+                    if (i % 9 == 0 && i != 0 || this.Inventory.Count() - 1 == i) Console.WriteLine("\t" + this.Inventory[i].rarity + this.Inventory[i].itemName); 
+                    else Console.Write(this.Inventory[i].rarity + $"{this.Inventory[i].itemName}, "); 
                 } 
             }
             Console.WriteLine();
@@ -154,12 +153,12 @@ namespace Adventure
         {
             foreach (Item i in items)
             {
-                this.inventory.Add(i);
+                this.Inventory.Add(i);
             }
         }
         public void Equipp(Item item)
         {
-            if (this.inventory.Contains(item))
+            if (this.Inventory.Contains(item))
             {
                 switch (item.Type)
                 {
@@ -227,13 +226,84 @@ namespace Adventure
                         }
                         break;
                 }
+            this.Inventory.Remove(item);
             }
 
         }
 
-
+        public void Unequipp(string slot)
+        {
+            switch (slot.ToLower())
+            {
+                case "hand1":
+                    this.Inventory.Add(this.Hands[0]);
+                    this.Hands[0] = null;
+                    break;
+                case "hand2":
+                    this.Inventory.Add(this.Hands[1]);
+                    this.Hands[1] = null;
+                    break;
+                case "helmet":
+                    this.Inventory.Add(this.Armour[0]);
+                    this.Armour[0] = null;
+                    break;
+                case "chestplate":
+                    this.Inventory.Add(this.Armour[1]);
+                    this.Armour[1] = null;
+                    break;
+                case "leggings":
+                    this.Inventory.Add(this.Armour[2]);
+                    this.Armour[2] = null;
+                    break;
+                case "boots":
+                    this.Inventory.Add(this.Armour[3]);
+                    this.Armour[3] = null;
+                    break;
+                case "necklace":
+                    this.Inventory.Add(this.Accessories[0]);
+                    this.Accessories[0] = null;
+                    break;
+                case "bracelet":
+                    this.Inventory.Add(this.Accessories[1]);
+                    this.Accessories[1] = null;
+;                    break;
+                case "ring1":
+                    this.Inventory.Add(this.Accessories[2]);
+                    this.Accessories[2] = null;
+                    break;
+                case "ring2":
+                    this.Inventory.Add(this.Accessories[3]);
+                    this.Accessories[3] = null;
+                    break;
+            }
+        }
+        public void LevelUp(int lvl = 1, int hp = 20, int mp = 10)
+        {
+            this.Level += lvl;
+            this.MaxHp += hp;
+            this.Hp = this.MaxHp;
+            this.MaxMP += mp;
+            this.MP = this.MaxMP;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write($"\n\nCongratulations! You have reached ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write(this.Level);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(" level!\n\n");
+            Console.ResetColor();
+        }
 
 
 
     }
+
+    class Spider : Entity
+    {
+        public Spider(int hp = 50, string n = "Spider", int lvl = 1) : base(n, hp, lvl)
+        {
+
+        }
+    }
+
+
 }

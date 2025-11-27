@@ -6,7 +6,7 @@ namespace Adventure
 {
     class Rarity
     {
-        public string rarity { get; set; }
+        public string rarity { get; private set; }
         public Rarity(string rare = "common") 
         {
             this.rarity = rare;
