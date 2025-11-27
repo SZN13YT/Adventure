@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Adventure
@@ -13,11 +14,17 @@ namespace Adventure
         protected int MaxHp { get; set; }
         protected int Level { get; set; }
         protected int Hp { get; set; }
-        public Entity(string n, int hp, int lvl)
+        protected int DMG { get; set; }
+        protected int DEF { get; set; }
+        protected int Healing { get; set; }
+        protected Entity(string n, int hp, int lvl, int def, int dmg, int heal = 0)
         {
             this.Name = n;
             this.MaxHp = hp;
             this.Hp = hp;
+            this.DMG = dmg;
+            this.DEF = def;
+            this.Healing = heal;
             this.Level = 1;
         }
 
@@ -42,7 +49,6 @@ namespace Adventure
 
         private int MP { get; set; }
         private int Xp { get; set; }
-        private int SelfHealing { get; set; }
         private int MaxMP { get; set; }
         private string Cast { get; set; }
         private Item[] Armour = { null, null, null, null };
@@ -57,12 +63,11 @@ namespace Adventure
             ["Iron"] = 0,
             ["Gold"] = 0
         };
-        public Player(int hp = 100, int mp = 110, string n = "Palyer", int lvl = 1, string cast = "bandit", int sHeal = 0) : base(n.ToUpper(), hp, lvl)
+        public Player(int hp = 100, int mp = 110, string n = "Palyer", int lvl = 1, string cast = "bandit", int sHeal = 0, int dmg = 8, int def = 4) : base(n:n.ToUpper(), hp:hp, lvl:lvl, def:def, heal:sHeal, dmg:dmg)
         {
             this.MP = mp;
             this.MaxMP = this.MP;
             this.Xp = 0;
-            this.SelfHealing = sHeal;
             this.Cast = cast;
         }
         public override void Print()
@@ -156,6 +161,64 @@ namespace Adventure
                 this.Inventory.Add(i);
             }
         }
+        private void Changer(string type, int bonusValue)
+        {
+            switch (type)
+            {
+                case "DMG":
+                    this.DMG += bonusValue;
+                    break;
+
+                case "DEF":
+                    this.DEF += bonusValue;
+                    break;
+
+                case "HP":
+                    this.MaxHp += bonusValue;
+                    this.Hp += bonusValue;
+                    break;
+
+                case "MP":
+                    this.MaxMP += bonusValue;
+                    this.MP += bonusValue;
+                    break;
+
+                case "HEAL":
+                    this.Healing += bonusValue;
+                    break;
+
+                case "ALL":
+                    this.DMG += bonusValue;
+                    this.DEF += bonusValue;
+
+                    this.MaxHp += bonusValue;
+                    this.Hp += bonusValue;
+
+                    this.MaxMP += bonusValue;
+                    this.MP += bonusValue;
+
+                    this.Healing += bonusValue;
+                    break;
+            }
+        }
+        public void ApplyBonus(Jewelry item)
+        {
+            string[] bonus = item.Type.Trim().Split();
+            for (int i = 0; i < bonus.Length; i++)
+            {
+                Changer(bonus[i], item.Bonuses[i]);
+            }
+        }
+        public void RemoveBonus(Jewelry item)
+        {
+            string[] bonus = item.Type.Trim().Split();
+            for (int i = 0; i < bonus.Length; i++)
+            {
+                Changer(bonus[i], -item.Bonuses[i]);
+            }
+        }
+
+
         public void Equipp(Item item)
         {
             if (this.Inventory.Contains(item))
@@ -163,64 +226,85 @@ namespace Adventure
                 switch (item.Type)
                 {
                     case "Weapon":
+                        Weapon weapon = (Weapon)item;
+                        this.DMG += weapon.damage;
                         switch (item.Hands)
                         { 
                             case 1:
                                 // one handed
                                 if (this.Hands[0] == null)
                                 {
-                                    this.Hands[0] = item;
+                                    this.Hands[0] = weapon;
                                 }
                                 else
                                 {
-                                    this.Hands[1] = item;
+                                    this.Hands[1] = weapon;
                                 }
                                 break;
                                 
                             case 2:
-                                this.Hands[0] = item;
-                                this.Hands[1] = item;
+                                this.Hands[0] = weapon;
+                                this.Hands[1] = weapon;
                                 break;
-                            
+
                         }
                         break;
                     
                     case "Armor":
+                        Armor armor = (Armor)item;
+                        this.DEF += armor.defense;
                         switch (item.itemName)
                         {
                             case "Helmet":
-                                this.Armour[0] = item;
+                                this.Armour[0] = armor;
                                 break;
                             case "Chestplate":
-                                this.Armour[1] = item;
+                                this.Armour[1] = armor;
                                 break;
                             case "Leggings":
-                                this.Armour[2] = item;
+                                this.Armour[2] = armor;
                                 break;
                             case "Boots":
-                                this.Armour[3] = item;
+                                this.Armour[3] = armor;
                                 break;
                         }
                         break;
 
                     case "Jewelry":
+                        Jewelry jewelry = (Jewelry)item;
+                        this.ApplyBonus(jewelry);
                         switch (item.itemName)
                         {
+                            
                             case "Necklace":
-                                this.Accessories[0] = item;
+                                if (this.Accessories[0] != null)
+                                {
+                                    this.RemoveBonus(jewelry);
+                                    this.Unequipp("Necklace");
+                                }
+                                this.Accessories[0] = jewelry;
                                 break;
                             case "Bracelet":
-                                this.Accessories[1] = item;
+                                this.RemoveBonus(jewelry);
+                                this.Unequipp("Bracelet");
+                                this.Accessories[1] = jewelry;
                                 break;
                             case "Rings":
-                                // one handed
                                 if (this.Accessories[2] == null)
                                 {
-                                    this.Accessories[2] = item;
+                                    this.Accessories[2] = jewelry;
+                                }
+                                else if (this.Accessories[3] == null)
+                                {
+                                    this.Accessories[3] = jewelry;
                                 }
                                 else
                                 {
-                                    this.Accessories[3] = item;
+                                    Console.WriteLine("Wich ring slot do you want to replace? (1, 2)");
+                                    int choice = Convert.ToInt32(Console.ReadLine());
+                                    string slot = choice == 1 ? "ring1" : "ring2";
+                                    this.Unequipp(slot);
+                                    this.Accessories[choice + 1] = jewelry;
                                 }
                                 break;
                         }
@@ -299,7 +383,7 @@ namespace Adventure
 
     class Spider : Entity
     {
-        public Spider(int hp = 50, string n = "Spider", int lvl = 1) : base(n, hp, lvl)
+        public Spider(int hp = 200, string n = "Spider", int lvl = 1, int def = 30, int dmg = 25) : base(n:n, hp:hp, lvl:lvl, def:def, dmg:dmg)
         {
 
         }
