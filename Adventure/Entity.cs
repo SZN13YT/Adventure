@@ -210,7 +210,7 @@ namespace Adventure
         }
         public void ApplyBonus(Jewelry item)
         {
-            string[] bonus = item.Type.Trim().Split();
+            string[] bonus = item.BonusTypes.Trim().Split();
             for (int i = 0; i < bonus.Length; i++)
             {
                 Changer(bonus[i], item.Bonuses[i]);
@@ -218,7 +218,7 @@ namespace Adventure
         }
         public void RemoveBonus(Jewelry item)
         {
-            string[] bonus = item.Type.Trim().Split();
+            string[] bonus = item.BonusTypes.Trim().Split();
             for (int i = 0; i < bonus.Length; i++)
             {
                 Changer(bonus[i], -item.Bonuses[i]);

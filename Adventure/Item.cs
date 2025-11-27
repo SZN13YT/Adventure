@@ -14,7 +14,7 @@ namespace Adventure
         public int Level { get; protected set; }
         public Rarity rarity { get; protected set; }
 
-        public Item(string n, int lvlr = 0, int hand = 0 , string type = "Potion", int lvl = 1, string rare = "common")
+        protected Item(string n, int lvlr = 0, int hand = 0 , string type = "Potion", int lvl = 1, string rare = "common")
         {
             this.itemName = n;
             this.Required = lvlr;
