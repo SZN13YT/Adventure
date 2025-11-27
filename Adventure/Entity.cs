@@ -51,9 +51,9 @@ namespace Adventure
         private int Xp { get; set; }
         private int MaxMP { get; set; }
         private string Cast { get; set; }
-        private Item[] Armour = { null, null, null, null };
-        private Item[] Accessories = { null, null, null, null };
-        private Item[] Hands = { null, null };
+        private Armor[] Armour = { null, null, null, null };
+        private Jewelry[] Accessories = { null, null, null, null };
+        private Weapon[] Hands = { null, null };
         public List<Item> Inventory { get; private set; } = new List<Item>();
         private Dictionary<string, int> Materials = new Dictionary<string, int>()
         {
@@ -82,10 +82,17 @@ namespace Adventure
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine(this.Cast);
             Console.ResetColor();
-            Console.WriteLine("\nInventory:");
-            Console.Write("\t");
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"DMG: {this.DMG}");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine($"DEF: {this.DEF}");
+            Console.ResetColor();
+
+            Console.WriteLine(Inventory.Count == 0 ? "\nInventory is empty." : "\nInventory:");
             if (this.Inventory.Count > 0) 
             { 
+                Console.Write("\t");
                 for (int i = 0; i < this.Inventory.Count(); i++) 
                 { 
                     if (i % 9 == 0 && i != 0 || this.Inventory.Count() - 1 == i) Console.WriteLine("\t" + this.Inventory[i].rarity + this.Inventory[i].itemName); 
@@ -109,24 +116,24 @@ namespace Adventure
                 switch (this.Accessories[i] == null)
                 {
                     case true:
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
                         break;
                     case false:
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
                         break;
                 }
                 Console.Write($"    ");
-                Console.Write(this.Accessories[i] == null ? $"Unequipped {Access[i]}\t      " : this.Accessories[i].itemName + "\t      \t"); ;
+                Console.Write(this.Accessories[i] == null ? $"None\t      " : this.Accessories[i].itemName + "\t      \t"); ;
                 switch (this.Armour[i] == null)
                 {
                     case true:
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
                         break;
                     case false:
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
                         break;
                 }
-                Console.WriteLine(this.Armour[i] == null ? $"Unequipped {Armors[i]}" : this.Armour[i].itemName);
+                Console.WriteLine(this.Armour[i] == null ? $"\tNone" : this.Armour[i].itemName);
                 // Necklace, Bracelet, Ring1, Ring2
                 //Healmet, Chestplate, Gauntlets, Leggings
             }
@@ -135,7 +142,7 @@ namespace Adventure
             switch (this.Hands[0] == null)
             {
                 case true:
-                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
                     break;
                 case false:
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -145,7 +152,7 @@ namespace Adventure
             switch (this.Hands[1] == null)
             {
                 case true:
-                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
                     break;
                 case false:
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -236,9 +243,17 @@ namespace Adventure
                                 {
                                     this.Hands[0] = weapon;
                                 }
-                                else
+                                else if (this.Hands[1] == null)
                                 {
                                     this.Hands[1] = weapon;
+                                }
+                                else 
+                                {
+                                    Console.WriteLine("Wich hand do you want to replace? (1, 2)");
+                                    int choice = Convert.ToInt32(Console.ReadLine());
+                                    this.Unequipp(choice == 1 ? "hand1" : "hand2");
+                                    if (choice == 1) this.Hands[0] = weapon;
+                                    else this.Hands[1] = weapon;
                                 }
                                 break;
                                 
@@ -280,13 +295,13 @@ namespace Adventure
                                 if (this.Accessories[0] != null)
                                 {
                                     this.RemoveBonus(jewelry);
-                                    this.Unequipp("Necklace");
+                                    this.Unequipp("neklace");
                                 }
                                 this.Accessories[0] = jewelry;
                                 break;
                             case "Bracelet":
                                 this.RemoveBonus(jewelry);
-                                this.Unequipp("Bracelet");
+                                this.Unequipp("bracelet");
                                 this.Accessories[1] = jewelry;
                                 break;
                             case "Rings":
@@ -302,62 +317,101 @@ namespace Adventure
                                 {
                                     Console.WriteLine("Wich ring slot do you want to replace? (1, 2)");
                                     int choice = Convert.ToInt32(Console.ReadLine());
-                                    string slot = choice == 1 ? "ring1" : "ring2";
-                                    this.Unequipp(slot);
+                                    this.Unequipp(choice == 1 ? "ring1" : "ring2");
                                     this.Accessories[choice + 1] = jewelry;
                                 }
                                 break;
                         }
                         break;
                 }
-            this.Inventory.Remove(item);
+                this.Inventory.Remove(item);
             }
 
         }
 
-        public void Unequipp(string slot)
+        public void Unequipp(string slot = "ring1")
         {
             switch (slot.ToLower())
             {
                 case "hand1":
-                    this.Inventory.Add(this.Hands[0]);
-                    this.Hands[0] = null;
+                    if (this.Hands[0] != null)
+                    {
+                        this.DMG -= this.Hands[0].damage;
+                        this.Inventory.Add(this.Hands[0]);
+                        this.Hands[0] = null;
+                    }
                     break;
                 case "hand2":
-                    this.Inventory.Add(this.Hands[1]);
-                    this.Hands[1] = null;
+                    if (this.Hands[1] != null)
+                    {
+                        this.DMG -= this.Hands[1].damage;
+                        this.Inventory.Add(this.Hands[1]);
+                        this.Hands[1] = null;
+                    }
                     break;
                 case "helmet":
-                    this.Inventory.Add(this.Armour[0]);
-                    this.Armour[0] = null;
+                    if (this.Armour[0] != null)
+                    {
+                        this.DEF -= this.Armour[0].defense;
+                        this.Inventory.Add(this.Armour[0]);
+                        this.Armour[0] = null;
+                    }
                     break;
                 case "chestplate":
-                    this.Inventory.Add(this.Armour[1]);
-                    this.Armour[1] = null;
+                    if (this.Armour[1] != null)
+                    {
+                        this.DEF -= this.Armour[1].defense;
+                        this.Inventory.Add(this.Armour[1]);
+                        this.Armour[1] = null;
+                    }
                     break;
                 case "leggings":
-                    this.Inventory.Add(this.Armour[2]);
-                    this.Armour[2] = null;
+                    if (this.Armour[2] != null)
+                    {
+                        this.DEF -= this.Armour[2].defense;
+                        this.Inventory.Add(this.Armour[2]);
+                        this.Armour[2] = null;
+                    }
                     break;
                 case "boots":
-                    this.Inventory.Add(this.Armour[3]);
-                    this.Armour[3] = null;
+                    if (this.Armour[3] != null)
+                    {
+                        this.DEF -= this.Armour[3].defense;
+                        this.Inventory.Add(this.Armour[3]);
+                        this.Armour[3] = null;
+                    }
                     break;
                 case "necklace":
-                    this.Inventory.Add(this.Accessories[0]);
-                    this.Accessories[0] = null;
+                    if (this.Accessories[0] != null)
+                    {
+                        this.RemoveBonus(this.Accessories[0]);
+                        this.Inventory.Add(this.Accessories[0]);
+                        this.Accessories[0] = null;
+                    }
                     break;
                 case "bracelet":
-                    this.Inventory.Add(this.Accessories[1]);
-                    this.Accessories[1] = null;
-;                    break;
+                    if (this.Accessories[1] != null)
+                    {
+                        this.RemoveBonus(this.Accessories[1]);
+                        this.Inventory.Add(this.Accessories[1]);
+                        this.Accessories[1] = null;
+                    }
+                    break;
                 case "ring1":
-                    this.Inventory.Add(this.Accessories[2]);
-                    this.Accessories[2] = null;
+                    if (this.Accessories[2] != null)
+                    {
+                        this.RemoveBonus(this.Accessories[2]);
+                        this.Inventory.Add(this.Accessories[2]);
+                        this.Accessories[2] = null;
+                    }
                     break;
                 case "ring2":
-                    this.Inventory.Add(this.Accessories[3]);
-                    this.Accessories[3] = null;
+                    if (this.Accessories[3] != null)
+                    {
+                        this.RemoveBonus(this.Accessories[3]);
+                        this.Inventory.Add(this.Accessories[3]);
+                        this.Accessories[3] = null;
+                    }
                     break;
             }
         }
