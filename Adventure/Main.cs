@@ -24,7 +24,6 @@ namespace Adventure
             player.LevelUp(lvl:2, hp:30, mp:15);
             player.Unequipp("hand1");
             player.Print();
-
         }
     }
 }

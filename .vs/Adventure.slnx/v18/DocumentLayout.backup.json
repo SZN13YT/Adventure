@@ -7,20 +7,28 @@
       "RelativeMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|solutionrelative:adventure\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|d:\\programoz\u00E1s\\adventure\\adventure\\jewellery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|solutionrelative:adventure\\jewellery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|d:\\programoz\u00E1s\\adventure\\adventure\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|solutionrelative:adventure\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|d:\\programoz\u00E1s\\adventure\\adventure\\rarity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|solutionrelative:adventure\\rarity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|d:\\programoz\u00E1s\\adventure\\adventure\\encounters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|solutionrelative:adventure\\encounters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|d:\\programoz\u00E1s\\adventure\\adventure\\jewellery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|solutionrelative:adventure\\jewellery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|d:\\programoz\u00E1s\\adventure\\adventure\\armors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|solutionrelative:adventure\\armors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|d:\\programoz\u00E1s\\adventure\\adventure\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|solutionrelative:adventure\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|d:\\programoz\u00E1s\\adventure\\adventure\\rarity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93EB4622-88B4-FB84-1CF9-09EF287BF229}|Adventure\\Adventure.csproj|solutionrelative:adventure\\rarity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,38 +54,51 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "Armors.cs",
+              "DocumentMoniker": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Armors.cs",
+              "RelativeDocumentMoniker": "Adventure\\Armors.cs",
+              "ToolTip": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Armors.cs",
+              "RelativeToolTip": "Adventure\\Armors.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAM0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T20:48:44.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Jewellery.cs",
               "DocumentMoniker": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Jewellery.cs",
               "RelativeDocumentMoniker": "Adventure\\Jewellery.cs",
               "ToolTip": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Jewellery.cs",
               "RelativeToolTip": "Adventure\\Jewellery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAcwGwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T00:43:37.684Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Rarity.cs",
               "DocumentMoniker": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Rarity.cs",
               "RelativeDocumentMoniker": "Adventure\\Rarity.cs",
               "ToolTip": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Rarity.cs",
               "RelativeToolTip": "Adventure\\Rarity.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAwwAgAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T12:14:39.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Entity.cs",
               "DocumentMoniker": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Entity.cs",
               "RelativeDocumentMoniker": "Adventure\\Entity.cs",
               "ToolTip": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Entity.cs",
               "RelativeToolTip": "Adventure\\Entity.cs",
-              "ViewState": "AgIAACkBAAAAAAAAAAAnwB8BAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAIwDcAAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T14:41:06.593Z",
               "EditorCaption": ""
@@ -90,22 +111,36 @@
               "RelativeDocumentMoniker": "Adventure\\Item.cs",
               "ToolTip": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Item.cs",
               "RelativeToolTip": "Adventure\\Item.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwAwAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAswNEAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T14:43:27.332Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "Encounters.cs",
+              "DocumentMoniker": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Encounters.cs",
+              "RelativeDocumentMoniker": "Adventure\\Encounters.cs",
+              "ToolTip": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Encounters.cs",
+              "RelativeToolTip": "Adventure\\Encounters.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T13:00:37.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Main.cs",
               "DocumentMoniker": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Main.cs",
               "RelativeDocumentMoniker": "Adventure\\Main.cs",
               "ToolTip": "D:\\programoz\u00E1s\\Adventure\\Adventure\\Main.cs",
               "RelativeToolTip": "Adventure\\Main.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwA4AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T08:24:13.826Z"
+              "WhenOpened": "2025-11-20T08:24:13.826Z",
+              "EditorCaption": ""
             }
           ]
         }
