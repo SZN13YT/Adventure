@@ -4,11 +4,14 @@ using System.Text;
 
 namespace Adventure
 {
-    internal class Encounters
+    class Encounters
     {
-        public Encounters()
+        public Encounters() { }
+        public void Market(Shop shop)
         {
 
         }
+
+
     }
 }

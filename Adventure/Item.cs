@@ -42,38 +42,38 @@ namespace Adventure
             switch (type.ToUpper())
             {
                 case "DMG":
-                    player.DMG += bonusValue;
+                    player.Stats.DMG += bonusValue;
                     break;
 
                 case "DEF":
-                    player.DEF += bonusValue;
+                    player.Stats.DEF += bonusValue;
                     break;
 
                 case "HP":
-                    player.MaxHp += bonusValue;
-                    player.Hp += bonusValue;
+                    player.Stats.MaxHp += bonusValue;
+                    player.Stats.Hp += bonusValue;
                     break;
 
                 case "MP":
-                    player.MaxMP += bonusValue;
-                    player.MP += bonusValue;
+                    player.Stats.MaxMP += bonusValue;
+                    player.Stats.MP += bonusValue;
                     break;
 
                 case "HEAL":
-                    player.Healing += bonusValue;
+                    player.Stats.Healing += bonusValue;
                     break;
 
                 case "ALL":
-                    player.DMG += bonusValue;
-                    player.DEF += bonusValue;
+                    player.Stats.DMG += bonusValue;
+                    player.Stats.DEF += bonusValue;
 
-                    player.MaxHp += bonusValue;
-                    player.Hp += bonusValue;
+                    player.Stats.MaxHp += bonusValue;
+                    player.Stats.Hp += bonusValue;
 
-                    player.MaxMP += bonusValue;
-                    player.MP += bonusValue;
+                    player.Stats.MaxMP += bonusValue;
+                    player.Stats.MP += bonusValue;
 
-                    player.Healing += bonusValue;
+                    player.Stats.Healing += bonusValue;
                     break;
             }
         }
@@ -234,14 +234,14 @@ namespace Adventure
             switch (this.effect.ToUpper())
             {
                 case "HEAL":
-                    player.Hp += this.degEff;
-                    if (player.Hp > player.MaxHp) player.Hp = player.MaxHp;
-                    Console.WriteLine($"You have healed {this.degEff} HP. Current HP: {player.Hp}/{player.MaxHp}");
+                    player.Stats.Hp += this.degEff;
+                    if (player.Stats.Hp > player.Stats.MaxHp) player.Stats.Hp = player.Stats.MaxHp;
+                    Console.WriteLine($"You have healed {this.degEff} HP. Current HP: {player.Stats.Hp}/{player.Stats.MaxHp}");
                     break;
                 case "MANA":
-                    player.MP += this.degEff;
-                    if (player.MP > player.MaxMP) player.MP = player.MaxMP;
-                    Console.WriteLine($"You have restored {this.degEff} MP. Current MP: {player.MP}/{player.MaxMP}");
+                    player.Stats.MP += this.degEff;
+                    if (player.Stats.MP > player.Stats.MaxMP) player.Stats.MP = player.Stats.MaxMP;
+                    Console.WriteLine($"You have restored {this.degEff} MP. Current MP: {player.Stats.MP}/{player.Stats.MaxMP}");
                     break;
                 /*
                  * 

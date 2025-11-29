@@ -14,19 +14,19 @@ namespace Adventure
         {
             
             
-            List<Item> baseicItems = [new Weapon(), new Chestplate(), new Helmet(), new Potion()];
+            List<Item> baseicItems = [new Weapon(), new Chestplate(), new Helmet(), new Potion(), new Ring(), new Ring(), new Ring()];
             Player player = new Player(hp:150, n:"Hero");
             player.Append([ new Weapon(iName:"Sword", d:25, lvlr:1, dura:100, maxDura:100) , new Chestplate()]);
             player.Append(baseicItems);
             // polimorfizmus nézz utána
 
+            player.Print();
+            player.LevelUp();
             player.Equipp(player.Inventory[0]);
             player.Print();
-            player.LevelUp(lvl:2, hp:30, mp:15);
-            player.Equipp();
-            player.Print();
-            Console.WriteLine(player.Inventory[2].itemName);
-            player.Equipp(player.Inventory[2]);
+            Zombie zomb = new Zombie();
+            
+            player.HpLoss(zomb.Attack());
             player.Print();
         }
     }
