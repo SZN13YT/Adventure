@@ -169,7 +169,7 @@ namespace Adventure
                 this.Inventory.Add(i);
             }
         }      
-<<<<<<< HEAD
+
         public void Equipp(Item item = null)
         {
             if (this.Inventory.Count == 0)
@@ -197,8 +197,6 @@ namespace Adventure
                 Console.WriteLine("The equip was succesfull!");
             }
         }
-=======
->>>>>>> f9fdfc903dd4de7c9fe308e403a961cf6393a314
         public void LevelUp(int lvl = 1, int hp = 20, int mp = 10)
         {
             this.Level += lvl;

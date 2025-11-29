@@ -6,11 +6,7 @@ namespace Adventure
 {
     class Amulet : Jewellery
     {
-<<<<<<< HEAD
         public Amulet(int[] b = null, string iName = "Amulet", string t = "DMG", int lvl = 1, int lvlr = 1, string rare = "common") : base(bonuses: b, n: iName, type: t, lvl: lvl, lvlr: lvlr, rare: rare)
-=======
-        public Amulet(int[] b, string iName = "Amulet", string t = "DMG", int lvl = 1, int lvlr = 1, string rare = "common") : base(bonuses: b, n: iName, type: t, lvl: lvl, lvlr: lvlr, rare: rare)
->>>>>>> f9fdfc903dd4de7c9fe308e403a961cf6393a314
         {
         }
         public override void Equipp(Player player)
@@ -48,11 +44,7 @@ namespace Adventure
     }
     class Bracelet : Jewellery
     {
-<<<<<<< HEAD
         public Bracelet(int[] b = null, string iName = "Bracelet", string t = "DMG", int lvl = 1, int lvlr = 1, string rare = "common") : base(bonuses: b, n: iName, type:t, lvl: lvl, lvlr:lvlr, rare:rare)
-=======
-        public Bracelet(int[] b, string iName = "Bracelet", string t = "DMG", int lvl = 1, int lvlr = 1, string rare = "common") : base(bonuses: b, n: iName, type:t, lvl: lvl, lvlr:lvlr, rare:rare)
->>>>>>> f9fdfc903dd4de7c9fe308e403a961cf6393a314
         {
         }
         public override void Equipp(Player player)
@@ -89,11 +81,7 @@ namespace Adventure
     }
     class Ring : Jewellery
     {
-<<<<<<< HEAD
         public Ring(int[] b = null, string iName = "Ring", string t = "DMG", int lvl = 1, int lvlr = 1, string rare = "common") : base(bonuses: b, n: iName, type:t, lvl: lvl, lvlr:lvlr, rare:rare)
-=======
-        public Ring(int[] b, string iName = "Ring", string t = "DMG", int lvl = 1, int lvlr = 1, string rare = "common") : base(bonuses: b, n: iName, type:t, lvl: lvl, lvlr:lvlr, rare:rare)
->>>>>>> f9fdfc903dd4de7c9fe308e403a961cf6393a314
         {
         }
         public override void Equipp(Player player)

@@ -23,15 +23,11 @@ namespace Adventure
             this.Type = type;
             this.Level = lvl;
             this.rarity = new Rarity(rare);
-<<<<<<< HEAD
             if (bonuses == null)
             {
                 this.Bonuses = new int[] { 23 };
             }
             else this.Bonuses = bonuses;
-=======
-            this.Bonuses = bonuses;
->>>>>>> f9fdfc903dd4de7c9fe308e403a961cf6393a314
         }
         public abstract void Equipp(Player player);
         public abstract void Unequipp(Player player);
@@ -106,11 +102,7 @@ namespace Adventure
         public int damage { get; private set; }
         public int durability { get; private set; }
         public int maxDurability { get; private set; }
-<<<<<<< HEAD
         public Weapon(int[] b = null, string t = "DMG", string iName = "Sword", int d = 23, int lvlr = 1, int dura = 200, int maxDura = 0, int hand = 1, int lvl = 1, string rare = "common") : base(bonuses: b, n: iName, lvlr: lvlr, hand: hand, type: t, lvl: lvl, rare: rare)
-=======
-        public Weapon(int[] b, string t = "DMG", string iName = "Sword", int d = 23, int lvlr = 1, int dura = 200, int maxDura = 0, int hand = 1, int lvl = 1, string rare = "common") : base(bonuses: b, n: iName, lvlr: lvlr, hand: hand, type: t, lvl: lvl, rare: rare)
->>>>>>> f9fdfc903dd4de7c9fe308e403a961cf6393a314
         {
             this.damage = d;
             if (maxDura == 0) this.maxDurability = dura;
@@ -201,7 +193,7 @@ namespace Adventure
         public int defense { get; private set; }
         public int durability { get; private set; }
         public int maxDurability { get; private set; }
-        public Armor(int[] b, string t = "DEF", string iName = "Chestplate", int def = 5, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(bonuses: b, n: iName, lvlr: lvlr, lvl: lvl, type: t, rare: rare)
+        public Armor(int[] b = null, string t = "DEF", string iName = "Chestplate", int def = 5, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(bonuses: b, n: iName, lvlr: lvlr, lvl: lvl, type: t, rare: rare)
         {
             this.defense = def;
             this.durability = dura;
@@ -223,11 +215,8 @@ namespace Adventure
         // under development (Strength, Defense, All)
         public string effect { get; private set; }
         public int degEff { get; private set; }
-<<<<<<< HEAD
         public Potion(int[] b = null, string iName = "Healing potion", string eff = "Heal", int degEff = 15, int lvl = 1) : base(b, iName, lvl)
-=======
-        public Potion(int[] b, string iName = "Healing potion", string eff = "Heal", int degEff = 15, int lvl = 1) : base(b, iName, lvl)
->>>>>>> f9fdfc903dd4de7c9fe308e403a961cf6393a314
+
         {
             this.effect = eff;
             this.degEff = degEff;

@@ -6,7 +6,7 @@ namespace Adventure
 {
     class Helmet : Armor
     {
-        public Helmet(int[] b, int def = 5, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(b: b, iName: "Helmet", def: def, lvl: lvl, lvlr: lvlr, dura: dura, maxDura: maxDura, rare: rare)
+        public Helmet(int[] b = null, int def = 5, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(b: b, iName: "Helmet", def: def, lvl: lvl, lvlr: lvlr, dura: dura, maxDura: maxDura, rare: rare)
         {
         }
         public override void Equipp(Player player)
@@ -46,7 +46,7 @@ namespace Adventure
     }
     class Chestplate : Armor
     {
-        public Chestplate(int[] b, int def = 10, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(b: b, iName: "Chestplate", def: def, lvl: lvl, lvlr: lvlr, dura: dura, maxDura: maxDura, rare: rare)
+        public Chestplate(int[] b = null, int def = 10, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(b: b, iName: "Chestplate", def: def, lvl: lvl, lvlr: lvlr, dura: dura, maxDura: maxDura, rare: rare)
         {
         }
         public override void Equipp(Player player)
@@ -86,7 +86,7 @@ namespace Adventure
     }
     class Gauntlets : Armor
     {
-        public Gauntlets(int[] b, int def = 3, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(b: b, iName: "Gauntlets", def: def, lvl: lvl, lvlr: lvlr, dura: dura, maxDura: maxDura, rare: rare)
+        public Gauntlets(int[] b = null, int def = 3, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(b: b, iName: "Gauntlets", def: def, lvl: lvl, lvlr: lvlr, dura: dura, maxDura: maxDura, rare: rare)
         {
         }
         public override void Equipp(Player player)
@@ -126,7 +126,7 @@ namespace Adventure
     }
     class Leggings : Armor
     {
-        public Leggings(int[] b, int def = 7, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(b: b, iName: "Leggings", def: def, lvl: lvl, lvlr: lvlr, dura: dura, maxDura: maxDura, rare: rare)
+        public Leggings(int[] b = null, int def = 7, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(b: b, iName: "Leggings", def: def, lvl: lvl, lvlr: lvlr, dura: dura, maxDura: maxDura, rare: rare)
 
         {
         }
@@ -167,7 +167,7 @@ namespace Adventure
     }
     class Boots : Armor
     {
-        public Boots(int[] b, int def = 4, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(b: b, iName: "Boots", def: def, lvl: lvl, lvlr: lvlr, dura: dura, maxDura: maxDura, rare: rare)
+        public Boots(int[] b = null, int def = 4, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(b: b, iName: "Boots", def: def, lvl: lvl, lvlr: lvlr, dura: dura, maxDura: maxDura, rare: rare)
         {
         }
         public override void Equipp(Player player)
