@@ -113,6 +113,7 @@ namespace Adventure
                     }
                     break;
             }
+            if (player.Accessories.Contains(this)) player.Inventory.Remove(this);
         }
         public override void Unequipp(Player player)
         {
