@@ -8,7 +8,7 @@ namespace Adventure
     {
         
         public Encounters() { }
-        public void Market(Shop shop)
+        public void Market(Shop shop, Player player)
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -19,17 +19,9 @@ namespace Adventure
                 Console.WriteLine(shop);
                 Console.WriteLine("Hey Dear Tourist!\nI'm happy to see you. What would you like to buy?");
             }
-            else this.GoAway();
+            else shop.GoAway(player);
         }
-        public void GoAway()
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("You decide to leave the market and continue your adventure elsewhere.");
-            Console.WriteLine("Where would you like to go next?");
-            Console.WriteLine(this.Left() + this.Right() + this.Up() + this.Down());
-        }
-        public 
+        
 
     }
 }

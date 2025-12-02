@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Adventure
 {
-    class Shop
+    class Shop : Scenes
     {
         public Inventory<Item> Items { get; set; } = new Inventory<Item>();
 

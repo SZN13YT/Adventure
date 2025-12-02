@@ -17,7 +17,6 @@ namespace Adventure
             this.Stats = new Stats(hp: hp, mp: mp, n: n, lvl: lvl, cast: cast, sHeal: sHeal, dmg: dmg, def: def, xp: xp);
         }
         public abstract void Print();
-<<<<<<< HEAD
         public int Attack()
         {
             return this.Stats.DMG;
@@ -25,8 +24,6 @@ namespace Adventure
         public void HpLoss(int DMG)
         {
             this.Stats.Hp -= DMG - (this.Stats.DEF/6);
-=======
->>>>>>> 93befb3b9afa3a3e5296a70617a3c8d460c787c8
 
         }
     }
@@ -46,6 +43,8 @@ namespace Adventure
             ["Iron"] = 0,
             ["Gold"] = 0
         };
+        public int X { get; internal set; } = 0;
+        public int Y { get; internal set; } = 0;
         public Player(int hp = 100, int mp = 110, string n = "Palyer", int lvl = 1, string cast = "bandit", int sHeal = 0, int dmg = 8, int def = 4) : base(n:n.ToUpper(), hp:hp, mp: mp, cast: cast, lvl:lvl, def:def, sHeal:sHeal, dmg:dmg)
         {
         }
@@ -172,7 +171,6 @@ namespace Adventure
             Console.WriteLine(this.Stats);
         }
     }
-<<<<<<< HEAD
     class Zombie : Entity
     {
         public Zombie(int hp = 200, string n = "Zombie", int lvl = 1, int def = 30, int dmg = 25) : base(n: n, hp: hp, lvl: lvl, def: def, dmg: dmg)
@@ -186,6 +184,4 @@ namespace Adventure
 
         }
     }
-=======
->>>>>>> 93befb3b9afa3a3e5296a70617a3c8d460c787c8
 }
