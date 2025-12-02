@@ -95,7 +95,10 @@ namespace Adventure
             this.MaxXp = this.Level * 100;
             this.Xp = 0;
             this.DEF += def;
+<<<<<<< HEAD
             
+=======
+>>>>>>> 93befb3b9afa3a3e5296a70617a3c8d460c787c8
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write($"\n\nCongratulations! You have reached ");
             Console.ForegroundColor = ConsoleColor.Yellow;
