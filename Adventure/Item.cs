@@ -15,7 +15,7 @@ namespace Adventure
         public Rarity rarity { get; protected set; }
         public int[] Bonuses { get; protected set; }
 
-        public Item(int[] bonuses, string n, int lvlr = 0, int hand = 0, string type = "HEAL", int lvl = 1, string rare = "common")
+        protected Item(int[] bonuses, string n, int lvlr = 0, int hand = 0, string type = "HEAL", int lvl = 1, string rare = "common")
         {
             this.itemName = n;
             this.Required = lvlr;
@@ -193,7 +193,7 @@ namespace Adventure
         public int defense { get; private set; }
         public int durability { get; private set; }
         public int maxDurability { get; private set; }
-        public Armor(int[] b = null, string t = "DEF", string iName = "Chestplate", int def = 5, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(bonuses: b, n: iName, lvlr: lvlr, lvl: lvl, type: t, rare: rare)
+        protected Armor(int[] b = null, string t = "DEF", string iName = "Chestplate", int def = 5, int lvl = 1, int lvlr = 1, int dura = 200, int maxDura = 0, string rare = "common") : base(bonuses: b, n: iName, lvlr: lvlr, lvl: lvl, type: t, rare: rare)
         {
             this.defense = def;
             this.durability = dura;
@@ -204,7 +204,7 @@ namespace Adventure
     abstract class Jewellery : Item
     {
         // Amulet, Bracelet, Rings
-        public Jewellery(int[] bonuses, string n, string type = "DMG", int lvl = 1, int lvlr = 1, string rare = "common") : base(bonuses: bonuses, n: n, type: type, lvl: lvl, lvlr: lvlr, rare: rare)
+        protected Jewellery(int[] bonuses, string n, string type = "DMG", int lvl = 1, int lvlr = 1, string rare = "common") : base(bonuses: bonuses, n: n, type: type, lvl: lvl, lvlr: lvlr, rare: rare)
         {
         }
     }

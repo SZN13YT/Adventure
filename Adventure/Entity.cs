@@ -45,6 +45,7 @@ namespace Adventure
         };
         public int X { get; internal set; } = 0;
         public int Y { get; internal set; } = 0;
+        public Scenes Scs{ get; internal set; } = new Scenes(sc: new Scene(n: "Starting Point", description: "You find yourself at the beginning of your adventure.", x: 0, y: 0, sceneId: 0));
         public Player(int hp = 100, int mp = 110, string n = "Palyer", int lvl = 1, string cast = "bandit", int sHeal = 0, int dmg = 8, int def = 4) : base(n:n.ToUpper(), hp:hp, mp: mp, cast: cast, lvl:lvl, def:def, sHeal:sHeal, dmg:dmg)
         {
         }
@@ -120,7 +121,8 @@ namespace Adventure
             {
                 this.Inventory.Add(i);
             }
-        }      
+        }
+
 
         public void Equipp(Item item = null)
         {
@@ -153,8 +155,11 @@ namespace Adventure
         {
             this.Stats.LevelUp();
         }
-        
 
+        public void Move()
+        {
+            this.Scs.GoAway(this);
+        }
 
 
     }

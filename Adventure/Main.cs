@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
 using System.IO;
 using System.Text;
+using System.Runtime.CompilerServices;
 
 namespace Adventure
 {   
@@ -30,17 +31,13 @@ namespace Adventure
             player.HpLoss(zomb.Attack());
             player.LevelUp(lvl:2, hp:30, mp:15);
 
-            int n;
-            do
-            {
-                player.Print();
-                player.Equipp();
-                n = int.Parse(Console.ReadLine());
-            } while (n != 0);
+            
             player.Print();
             Console.WriteLine(player.Inventory[2].itemName);
             player.Equipp(player.Inventory[2]);
             player.Print();
+            player.Move();
+            
         }
     }
 }
